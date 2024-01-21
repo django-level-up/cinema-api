@@ -36,12 +36,3 @@ The Cinema API project provides an interface to interact with the Cinema applica
 5. Access the Swagger documentation:
 
     Open [http://localhost:8080/docs](http://localhost:8080/docs) in your browser to interact with the API and explore available endpoints.
-
-## Project Dependencies
-
-- FastAPI
-- httpx
-
-## Note
-
-Ensure that the Django server of the Cinema application is running and accessible at the URL specified in the `main.py` file. Update the URL if necessary.
