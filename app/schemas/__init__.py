@@ -1,13 +1,29 @@
 from .movie import (
-    MovieBase,
-    MoveDetail,
+    MovieBaseSchema,
+    MovieDetailSchema,
     MovieInDB,
 )
-from .source import (
-    SourceBase,
-    SourceDetaile,
-    SourceInDB,
+from .show import (
+    ShowBaseSchema,
+    ShowDetailSchema,
+    ShowInDB,
 )
-from .movie_souce import (
-    MovieSourceBase,
+
+from .season import (
+    SeasonBaseSchema,
+    SeasonDetailSchema,
+    SeasonInDB,
 )
+
+from .episode import (
+    EpisodeBaseSchema,
+    EpisodeDetailSchema,
+    EpisodeInDB,
+)
+from .episode_source import (
+    EpisodeSourceBaseSchema,
+    EpisodeSourceInDB,
+)
+
+from .source import SourceBaseSchema
+from .movie_source import MovieSourceBaseSchema

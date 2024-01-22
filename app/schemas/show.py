@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import date
 
 
-class MovieBaseSchema(BaseModel):
+class ShowBaseSchema(BaseModel):
     id: UUID4
     title: str
     image: str = None
@@ -14,12 +14,12 @@ class MovieBaseSchema(BaseModel):
     tmdb_rating: Optional[float] = None
 
 
-class MovieDetailSchema(MovieBaseSchema):
+class ShowDetailSchema(ShowBaseSchema):
     bg_image: str = None
     duration: str = None
     keywords: str = None
     release_date: date = None
 
 
-class MovieInDB(BaseModel):
+class ShowInDB(BaseModel):
     id: UUID4

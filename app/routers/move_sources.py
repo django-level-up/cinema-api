@@ -1,24 +1,21 @@
-from fastapi import APIRouter, HTTPException
-from app.models import Source, MovieSource
-from app.schemas import MovieSourceBase
+from fastapi import APIRouter
+from models import MovieSource
+from schemas import (
+    MovieSourceBaseSchema,
+)
 from uuid import UUID
 from typing import List
 
 router = APIRouter()
 
 
-@router.get("/movie_sources/", response_model=MovieSourceBase)
-async def get_movie_sources():
-    source = await MovieSource.all()
-    if source is not None:
-        return source
-    raise HTTPException(status_code=404, detail="not found")
+@router.get("/movie_sources", response_model=List[MovieSourceBaseSchema])
+async def read_all_sources():
+    movie_sources = await MovieSource.all().values()
+    return movie_sources
 
 
-# @router.get("/movies_sources/{movie_id}", response_model=List[MovieSourceBase])
-# async def get_movie_sources(movie_id: UUID):
-#     movie_sources = await MovieSource.filter(movie_id=movie_id).all()
-#     if movie_sources:
-#         return [await MovieSource.from_orm(movie_source) for movie_source in movie_sources]
-#     raise HTTPException(status_code=404, detail=f"Movie with id {movie_id} not found")
-
+@router.get("/movie_sources/{source_id}", response_model=MovieSourceBaseSchema)
+async def get_movie_sources(source_id: UUID):
+    movie_source = await MovieSource.get_or_none(id=source_id).values()
+    return movie_source[0]

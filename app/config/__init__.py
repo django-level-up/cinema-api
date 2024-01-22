@@ -1,2 +1,2 @@
 from .base import *
-from .tortoise_config import *
+from .tortoise import *

@@ -1,7 +1,7 @@
 from tortoise import fields, models
 
 
-class Movie(models.Model):
+class Show(models.Model):
     id = fields.UUIDField(pk=True)
     title = fields.CharField(max_length=255)
     description = fields.TextField(
@@ -42,4 +42,4 @@ class Movie(models.Model):
     keywords = fields.TextField(null=True, blank=True)
 
     class Meta:
-        table = "content_movie"
+        table = "content_show"
